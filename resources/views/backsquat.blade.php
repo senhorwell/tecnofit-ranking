@@ -24,7 +24,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Adicionar novo record</button>
             </form>
-            <table class="table">
+            <table id="table" class="table">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -43,15 +43,9 @@
                             <td class="{{($i > 0 && $records[$i]->value == $records[$i-1]->value) ? 'border-none' : ''}}">{{$records[$i]->usuario->name}}</td>
                             <td class="{{($i > 0 && $records[$i]->value == $records[$i-1]->value) ? 'border-none' : ''}} text-center">{{$records[$i]->value}}</td>
                             <td class="{{($i > 0 && $records[$i]->value == $records[$i-1]->value) ? 'border-none' : ''}} text-center">{{\Carbon\Carbon::parse($records[$i]->date)->format('d/m/Y')}}</td>
-                            <td class="{{($i > 0 && $records[$i]->value == $records[$i-1]->value) ? 'border-none' : ''}} text-center">
-                                <form id="record-edit-form" method="POST" action="{{route('deadlift')}}">
-                                    @csrf
-                                    <input type="hidden" name="record_id" id="record_id" value="{{$records[$i]->id}}"/>
-                                    <i class="fas fa-pencil-alt"></i>
-                                </form>
-                                <a href="#" value="{{$records[$i]->id}}" class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                            <td class="{{($i > 0 && $records[$i]->value == $records[$i-1]->value) ? 'border-none' : ''}} text-center d-flex justify-content-center">
+                                <button value="{{$records[$i]->id}}" class="btn btn-primary">Editar</button>
+                                <button value="{{$records[$i]->id}}" onClick="deleteOnClick(this)" class="btn btn-secondary">Deletar</button>
                             </td>
                         </tr>    
                     @endfor
@@ -61,5 +55,21 @@
         </div>
     </div>
 </div>
-    
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  function deleteOnClick(sel){
+      $.ajax({
+        url: "{{ route('backsquat.delete') }}",
+        type:'DELETE',
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },  
+        data: {record_id:sel.getAttribute('value')},
+        success: function(data) {
+            location.reload()
+        }
+      });
+    }
+</script>
 @endsection

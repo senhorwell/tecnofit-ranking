@@ -20,5 +20,9 @@ Route::post('/deadlift/enviar', 'App\Http\Controllers\RankingController@setDeadl
 Route::post('/backsquat/enviar', 'App\Http\Controllers\RankingController@setBacksquat')->name('backsquat.registra');
 Route::post('/benchpress/enviar', 'App\Http\Controllers\RankingController@setBenchpress')->name('benchpress.registra');
 
+Route::delete('/deadlift/delete', 'App\Http\Controllers\RankingController@deleteDeadlift')->name('deadlift.delete');
+Route::delete('/backsquat/delete', 'App\Http\Controllers\RankingController@deleteBacksquat')->name('backsquat.delete');
+Route::delete('/benchpress/delete', 'App\Http\Controllers\RankingController@deleteBenchpress')->name('benchpress.delete');
+
 Route::get('/', 'App\Http\Controllers\RankingController@getDeadlift')->name('home');
 

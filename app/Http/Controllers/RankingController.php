@@ -55,4 +55,28 @@ class RankingController extends Controller
         ]);
         return redirect()->route('benchpress');
     }
+    public function deleteDeadlift(){
+        $post = Request::post();
+
+        $ranking = Record::find($post["record_id"]);
+        $ranking->delete();
+
+        return;
+    }
+    public function deleteBacksquat(){
+        $post = Request::post();
+
+        $ranking = Record::find($post["record_id"]);
+        $ranking->delete();
+
+        return;
+    }
+    public function deleteBenchpress(){
+        $post = Request::post();
+
+        $ranking = Record::find($post["record_id"]);
+        $ranking->delete();
+
+        return;
+    }
 }
