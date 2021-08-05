@@ -11,6 +11,7 @@ class User extends Model
      * @var string
      */
     protected $table = 'user';
+    public $timestamps = false;
 
     /**
      * The database primary key value.
@@ -19,8 +20,8 @@ class User extends Model
      */
     protected $primaryKey = 'id';
 
-
-    /**
+    
+        /**
      * The attributes that are mass assignable.
      *
      * @var array

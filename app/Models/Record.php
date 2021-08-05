@@ -11,6 +11,7 @@ class Record extends Model {
      * @var string
      */
     protected $table = 'personal_record';
+    public $timestamps = false;
 
     /**
      * The database primary key value.

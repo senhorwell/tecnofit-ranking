@@ -11,6 +11,7 @@ class Movement extends Model {
      * @var string
      */
     protected $table = 'movement';
+    public $timestamps = false;
 
     /**
      * The database primary key value.

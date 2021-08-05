@@ -7,17 +7,23 @@
             
             <div class="card">
             <h1 class="w-100 text-center">Deadlift</h1>
-            <form class="d-flex justify-content-between flex-column flex-md-row my-4">
+            <form class="d-flex justify-content-between flex-column flex-md-row my-4" method="post" action="{{ route('deadlift.registra') }}">
+                @csrf    
                 <div class="form-group col-12 col-md-3 px-0 px-md-2 my-md-0 py-md-0">
-                    <input type="text" class="form-control" id="name" placeholder="Nome">
+                    <select class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name" required="true">
+                        <option value="0" selected> Selecione um usuario</option>
+                        @foreach($users as $user)
+                            <option value="{{$user->id}}">{{$user->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group col-12 col-md-3 px-0 px-md-2 my-md-0 py-md-0">
-                    <input type="number" class="form-control" id="record" placeholder="Recorde pessoal">
+                    <input type="number" class="form-control" id="value" name="value" placeholder="Recorde pessoal">
                 </div>
                 <div class="form-group col-12 col-md-3 px-0 px-md-2 my-md-0 py-md-0">
-                    <input type="date" class="form-control" id="data" placeholder="Data">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="Data">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Adicionar novo record</button>
             </form>
             <table class="table">
                 <thead>
