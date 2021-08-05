@@ -12,7 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/deadlift', function () {
+    return view('deadlift');
+});
+Route::get('/backsquat', function () {
+    return view('backsquat');
+});
+Route::get('/benchpress', function () {
+    return view('benchpress');
+});
 Route::get('/', function () {
-    return view('welcome');
+    return view('deadlift');
 });

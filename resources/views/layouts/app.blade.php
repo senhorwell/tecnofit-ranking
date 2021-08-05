@@ -36,13 +36,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Deadlift') }}</a>
+                            <a class="nav-link" href="/deadlift">{{ __('Deadlift') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Back Squat') }}</a>
+                            <a class="nav-link" href="/backsquat">{{ __('Back Squat') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Bench Press') }}</a>
+                            <a class="nav-link" href="/benchpress">{{ __('Bench Press') }}</a>
                         </li>
                     </ul>
                 </div>
