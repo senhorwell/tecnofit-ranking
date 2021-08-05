@@ -8,10 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Tecnofit</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -19,7 +16,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tecnofit.com.br/wp-content/uploads/fbrfg/favicon-32x32.png?v=3">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
