@@ -4072,7 +4072,7 @@ input[type=button].btn-block {
 .tab-content > .active {
   display: block;
 }
-
+.border-none {border-top: none !important;}
 .navbar {
   position: relative;
   display: flex;
