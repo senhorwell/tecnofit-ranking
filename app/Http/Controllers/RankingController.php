@@ -27,32 +27,65 @@ class RankingController extends Controller
     }
     public function setDeadlift(){
         $post = Request::post();
-        Record::create([
-            'user_id' => $post["name"],
-            'movement_id' => 1,
-            'value' => $post["value"],
-            'date' => $post["date"]
-        ]);
+
+        if($post["edit"] == 0){
+            Record::create([
+                'user_id' => $post["name"],
+                'movement_id' => 1,
+                'value' => $post["value"],
+                'date' => $post["date"]
+            ]);
+        }else{
+            $record = Record::find($post["record_id"]);
+            $record->update([
+                'user_id' => $post["name"],
+                'movement_id' => 1,
+                'value' => $post["value"],
+                'date' => $post["date"]
+            ]);
+        }
         return redirect()->route('deadlift');
     }
     public function setBacksquat(){
         $post = Request::post();
-        Record::create([
-            'user_id' => $post["name"],
-            'movement_id' => 2,
-            'value' => $post["value"],
-            'date' => $post["date"]
-        ]);
+
+        if($post["edit"] == 0){
+            Record::create([
+                'user_id' => $post["name"],
+                'movement_id' => 2,
+                'value' => $post["value"],
+                'date' => $post["date"]
+            ]);
+        }else{
+            $record = Record::find($post["record_id"]);
+            $record->update([
+                'user_id' => $post["name"],
+                'movement_id' => 2,
+                'value' => $post["value"],
+                'date' => $post["date"]
+            ]);
+        }
         return redirect()->route('backsquat');
     }
     public function setBenchpress(){
         $post = Request::post();
-        Record::create([
-            'user_id' => $post["name"],
-            'movement_id' => 3,
-            'value' => $post["value"],
-            'date' => $post["date"]
-        ]);
+        if($post["edit"] == 0){
+            Record::create([
+                'user_id' => $post["name"],
+                'movement_id' => 3,
+                'value' => $post["value"],
+                'date' => $post["date"]
+            ]);
+        }else{
+            $record = Record::find($post["record_id"]);
+            $record->update([
+                'user_id' => $post["name"],
+                'movement_id' => 3,
+                'value' => $post["value"],
+                'date' => $post["date"]
+            ]);
+        }
+        
         return redirect()->route('benchpress');
     }
     public function deleteDeadlift(){
