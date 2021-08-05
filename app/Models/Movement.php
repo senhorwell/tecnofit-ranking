@@ -3,14 +3,14 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
-{
+class Movement extends Model {
+    
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'movement';
 
     /**
      * The database primary key value.
@@ -18,8 +18,6 @@ class User extends Model
      * @var string
      */
     protected $primaryKey = 'id';
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -28,9 +26,8 @@ class User extends Model
     protected $fillable = [
         'name'
     ];
-
     public function records()
     {
-        return $this->hasMany(Record::class, 'user_id');
+        return $this->hasMany(Record::class, 'movement_id');
     }
 }

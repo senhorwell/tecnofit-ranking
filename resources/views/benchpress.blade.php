@@ -11,33 +11,24 @@
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Recorde Pessoal</th>
-                    <th scope="col">Data</th>
+                    <th class="text-center" scope="col">Recorde Pessoal</th>
+                    <th class="text-center" scope="col">Data</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>3414124</td>
-                    <td>05/08/2021</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob<br>Gut</td>
-                    <td>3124124<br>123431241</td>
-                    <td>05/08/2021<br>05/08/2021</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>143214</td>
-                    <td>05/08/2021</td>
-                    </tr>
+                    @foreach($records as $record)
+                        <tr value="{{$record->id}}">
+                            <th scope="row">{{$record->id}}</th>
+                            <td>{{$record->usuario->name}}</td>
+                            <td class="text-center">{{$record->value}}</td>
+                            <td class="text-center">{{\Carbon\Carbon::parse($record->date)->format('d/m/Y')}}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+    
 @endsection
