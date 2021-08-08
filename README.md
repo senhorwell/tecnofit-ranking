@@ -60,6 +60,13 @@ Feito isso, o projeto irá rodar na URL http://localhost:8000/ , e já poderá s
 - http://localhost:8000/backsquat/delete
 - http://localhost:8000/benchpress/delete
 
-## Licença
+## Imagens
+# Desktop
+![](resources/img/desktop.PNG)
+# Requisição
+![](resources/img/requisicao.PNG)
+# Mobile
+![](resources/img/mobile.PNG)
 
+## Licença
 O projeto foi escrito inteiramente por mim, baseado em projetos que já fiz nesta framework e Stackoverflow.
