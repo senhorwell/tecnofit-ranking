@@ -7,7 +7,7 @@
             
             <div class="card">
             <h1 class="w-100 text-center">Deadlift</h1>
-            <form class="d-flex justify-content-between flex-column flex-md-row my-4" method="post" action="{{ route('deadlift.registra') }}">
+            <form class="d-flex justify-content-between flex-column flex-md-row my-4" method="post" action="{{ route('deadlift.update') }}">
                 @csrf    
                 <div class="form-group col-12 col-md-3 px-0 px-md-2 my-md-0 py-md-0">
                     <select class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="name" required="true">

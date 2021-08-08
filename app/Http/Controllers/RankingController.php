@@ -25,6 +25,18 @@ class RankingController extends Controller
         $users = User::all();
         return view('benchpress', ['records' => $todos,'users' => $users]);
     }
+    public function getDeadliftDados(){
+        $todos = Record::with('usuario','movimento')->where('movement_id',1)->orderBy('value', 'desc')->get();
+        return $todos;
+    }
+    public function getBacksquatDados(){
+        $todos = Record::with('usuario','movimento')->where('movement_id',2)->orderBy('value', 'desc')->get();
+        return $todos;
+    }
+    public function getBenchpressDados(){
+        $todos = Record::with('usuario','movimento')->where('movement_id',3)->orderBy('value', 'desc')->get();
+        return $todos;
+    }
     public function setDeadlift(){
         $post = Request::post();
 

@@ -16,9 +16,13 @@ Route::get('/deadlift', 'App\Http\Controllers\RankingController@getDeadlift')->n
 Route::get('/backsquat', 'App\Http\Controllers\RankingController@getBacksquat')->name('backsquat');
 Route::get('/benchpress', 'App\Http\Controllers\RankingController@getBenchpress')->name('benchpress');
 
-Route::post('/deadlift/enviar', 'App\Http\Controllers\RankingController@setDeadlift')->name('deadlift.registra');
-Route::post('/backsquat/enviar', 'App\Http\Controllers\RankingController@setBacksquat')->name('backsquat.registra');
-Route::post('/benchpress/enviar', 'App\Http\Controllers\RankingController@setBenchpress')->name('benchpress.registra');
+Route::get('/deadlift/get', 'App\Http\Controllers\RankingController@getDeadliftDados')->name('deadlift');
+Route::get('/backsquat/get', 'App\Http\Controllers\RankingController@getBacksquatDados')->name('backsquat');
+Route::get('/benchpress/get', 'App\Http\Controllers\RankingController@getBenchpressDados')->name('benchpress');
+
+Route::post('/deadlift/update', 'App\Http\Controllers\RankingController@setDeadlift')->name('deadlift.update');
+Route::post('/backsquat/update', 'App\Http\Controllers\RankingController@setBacksquat')->name('backsquat.update');
+Route::post('/benchpress/update', 'App\Http\Controllers\RankingController@setBenchpress')->name('benchpress.update');
 
 Route::delete('/deadlift/delete', 'App\Http\Controllers\RankingController@deleteDeadlift')->name('deadlift.delete');
 Route::delete('/backsquat/delete', 'App\Http\Controllers\RankingController@deleteBacksquat')->name('backsquat.delete');
