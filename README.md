@@ -1,63 +1,65 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://tecnofit.com.br/" target="_blank"><img src="https://play-lh.googleusercontent.com/PDZ0MjtpWKT-gjKL_aVt3LJ873HGR-f535lgRg7JHm2JU1vsfZuy0YdJuTnRkXAvqdO6" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Sobre o desenvolvimento
 
-## About Laravel
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="100"></a></p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+O projeto foi desenvolvido com base no framework Laravel, um framework PHP que facilita a construção de um projeto baseado em MVC (Model, View, Controller) que facilita na contrução de projetos de médio/grande porte.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Ademais este projeto foi escrito em PHP 8, Bootstrap 4.6, Jquery 3.5.1 e muito amor.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Construido de forma 100% responsiva, podendo ser usada em App via WebView ou do navegador de celulares e tablets.
 
-## Learning Laravel
+## Sobre as funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Neste projeto foi pedido que escrevesse um código com endpoint REST.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+O Projeto faz um CRUD completo do focado no ranking, deixando para o banco apenas a parte de usuario e movimento à ser colocado diretamente.
 
-## Laravel Sponsors
+Devido a framework este projeto é facilmente escalonavel e já está pronto para produção.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Sobre como rodar
 
-### Premium Partners
+O projeto é construido em Laravel, e foi instalado via composer. À seguir uma lista de algumas coisas que precisam estar instaladas no projeto:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
+- Composer
+- PHP
+- XAMPP (ou equivalente para rodar MySQL Server)
+- MySQL Workbench (ou equivalente para conectar ao MySQL Server)
 
-## Contributing
+Feito isso, precisamos ir até a raiz do projeto e rodar o banco.sql seu workbench, para que seja criado o esquema e tabelas que serão consumidas pelo projeto. A configuração de conexão ao banco, está configurado no arquivo .env, que está localizado na raiz do projeto.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Instalado tudo e com o banco pronto, apenas será preciso rodar dois códigos na raiz do projeto:
+- composer install
+- php artisan serve
 
-## Code of Conduct
+Feito isso, o projeto irá rodar na URL http://localhost:8000/ , e já poderá ser testado o CRUD do projeto.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Sobre as requisições
+#### GET
+###### Sem paramos, este get retorna todos os dados de rankeamento, incluindo nome e ID do usuario
+- http://localhost:8000/deadlift/get
+- http://localhost:8000/backsquat/get
+- http://localhost:8000/benchpress/get
 
-## Security Vulnerabilities
+#### DELETE
+##### Parametros
+**Header:** X-CSRF-TOKEN = (token gerado pelo Laravel)
+**Body:** record_id = (id do ranking)
+- http://localhost:8000/deadlift/delete
+- http://localhost:8000/backsquat/delete
+- http://localhost:8000/benchpress/delete
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### UPDATE/CREATE
+###### Para criar esta requisição, eu queria economizar tempo não utilizando ajax para fazer a requisição PUT (talvez uma escolha ruim), pois a tag form não recebe PUT como parametro de metodo. Para isso, utilizei a mesma requisição, diferenciada pelo parametro edit, que irá 0 para que seja uma requisição CREATE e 1 para que seja uma requisição UPDATE.
 
-## License
+##### Parametros
+**Header:** X-CSRF-TOKEN = (token gerado pelo Laravel)
+**Body:** name = user->id, value = valor do record, date = data do record, record_id = (para o caso de uma requisição com edit = 1, é enviado o id do record), edit = (0 para uma requisição CREATE e 1 para requisição UPDATE)
+- http://localhost:8000/deadlift/delete
+- http://localhost:8000/backsquat/delete
+- http://localhost:8000/benchpress/delete
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Licença
+
+O projeto foi escrito inteiramente por mim, baseado em projetos que já fiz nesta framework e Stackoverflow.
