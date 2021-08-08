@@ -34,6 +34,32 @@ Instalado tudo e com o banco pronto, apenas será preciso rodar dois códigos na
 - php artisan serve
 
 Feito isso, o projeto irá rodar na URL http://localhost:8000/ , e já poderá ser testado o CRUD do projeto.
+
+## Sobre as requisições
+#### GET
+###### Sem paramos, este get retorna todos os dados de rankeamento, incluindo nome e ID do usuario
+- http://localhost:8000/deadlift/get
+- http://localhost:8000/backsquat/get
+- http://localhost:8000/benchpress/get
+
+#### DELETE
+##### Parametros
+**Header:** X-CSRF-TOKEN = (token gerado pelo Laravel)
+**Body:** record_id = (id do ranking)
+- http://localhost:8000/deadlift/delete
+- http://localhost:8000/backsquat/delete
+- http://localhost:8000/benchpress/delete
+
+#### UPDATE/CREATE
+###### Para criar esta requisição, eu queria economizar tempo não utilizando ajax para fazer a requisição PUT (talvez uma escolha ruim), pois a tag form não recebe PUT como parametro de metodo. Para isso, utilizei a mesma requisição, diferenciada pelo parametro edit, que irá 0 para que seja uma requisição CREATE e 1 para que seja uma requisição UPDATE.
+
+##### Parametros
+**Header:** X-CSRF-TOKEN = (token gerado pelo Laravel)
+**Body:** name = user->id, value = valor do record, date = data do record, record_id = (para o caso de uma requisição com edit = 1, é enviado o id do record), edit = (0 para uma requisição CREATE e 1 para requisição UPDATE)
+- http://localhost:8000/deadlift/delete
+- http://localhost:8000/backsquat/delete
+- http://localhost:8000/benchpress/delete
+
 ## Licença
 
 O projeto foi escrito inteiramente por mim, baseado em projetos que já fiz nesta framework e Stackoverflow.
